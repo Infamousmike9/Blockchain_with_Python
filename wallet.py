@@ -47,14 +47,14 @@ coins = {
 #print(f"Ethereum Private Key {coins[ETH][0]['privkey']}"
 #print(f"Bitcoin Private Key {coins[BTCTEST][0]['privkey']}"
 
-
+#Selects account for each coin:
 def priv_key_to_account(coin, priv_key):
     if coin == ETH:
        return Account.privateKeyToAccount(priv_key)
     elif coin == BTCTEST:
        return PrivateKeyTestnet(priv_key)
 
-account_one = priv_key_to_account(BTCTEST, coins[BTCTEST][0]['privkey'])
+account_one = priv_key_to_account(BTCTEST, coins[BTCTEST][1]['privkey'])
 account_two = priv_key_to_account(ETH, coins[ETH][1]['privkey'])
 
 
@@ -86,15 +86,16 @@ def send_tx(coin, account, to, amount):
 
 # Use the below to insert private key here
 ### Need to add variables to pull keys:
-#  = wif_to_key(os.getenv("''"))
-#  = wif_to_key(os.getenv("''"))
+#  = wif_to_key()
+#  = wif_to_key()
+
 
 print(coins)
 print(coins[ETH][1]['privkey'])
-print(coins[BTCTEST][0]['privkey'])
+print(coins[BTCTEST][2]['address'])
 
-print(account_one)
-print(account_two)
+#print(account_one)
+#print(account_two)
 
 # print(.get_balance("btc"))
 # print(.balance_as("usd"))
